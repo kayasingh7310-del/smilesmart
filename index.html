@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SmileSmart is an interactive oral-health education website for teens." />
+  <title>SmileSmart | Healthy Smiles Start Here</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home" aria-label="SmileSmart home">
+      <span class="logo-icon" aria-hidden="true">🦷</span>
+      <span>SmileSmart</span>
+    </a>
+
+    <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav id="mainNav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#smile-check">Smile Check</a>
+      <a href="#learn">Learn</a>
+      <a href="#tooth">Interactive Tooth</a>
+      <a href="#sugar">Sugar Calculator</a>
+      <a href="#myths">Myths</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow">Oral health made simple</span>
+        <h1>Healthy smiles start here.</h1>
+        <p>
+          Learn how daily habits, food choices, and preventive care affect your teeth
+          through interactive tools designed for teens.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#smile-check">Start Your Smile Check</a>
+          <a class="button secondary" href="#learn">Explore Topics</a>
+        </div>
+        <div class="hero-stats" aria-label="Website features">
+          <div><strong>8+</strong><span>Health topics</span></div>
+          <div><strong>100%</strong><span>Free to use</span></div>
+          <div><strong>5 min</strong><span>Smile check</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="tooth-orbit">
+          <div class="floating-card card-one">✨ Better habits</div>
+          <div class="floating-card card-two">🪥 Daily care</div>
+          <div class="big-tooth">🦷</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="smile-check">
+      <div class="section-heading">
+        <span class="eyebrow">Interactive assessment</span>
+        <h2>Check your smile habits</h2>
+        <p>Answer six quick questions to receive an educational score and personalized suggestions.</p>
+      </div>
+
+      <div class="assessment-grid">
+        <form class="quiz-card" id="smileForm">
+          <label>
+            How often do you brush each day?
+            <select name="brush" required>
+              <option value="">Choose one</option>
+              <option value="5">Less than once</option>
+              <option value="12">Once</option>
+              <option value="20">Twice or more</option>
+            </select>
+          </label>
+
+          <label>
+            How often do you floss?
+            <select name="floss" required>
+              <option value="">Choose one</option>
+              <option value="4">Rarely</option>
+              <option value="10">A few times per week</option>
+              <option value="18">Daily</option>
+            </select>
+          </label>
+
+          <label>
+            How often do you drink soda or energy drinks?
+            <select name="soda" required>
+              <option value="">Choose one</option>
+              <option value="18">Rarely</option>
+              <option value="10">A few times per week</option>
+              <option value="4">Daily</option>
+            </select>
+          </label>
+
+          <label>
+            How often do you eat sugary snacks?
+            <select name="snacks" required>
+              <option value="">Choose one</option>
+              <option value="17">Rarely</option>
+              <option value="10">A few times per week</option>
+              <option value="5">Several times per day</option>
+            </select>
+          </label>
+
+          <label>
+            When was your last dental visit?
+            <select name="visit" required>
+              <option value="">Choose one</option>
+              <option value="17">Within 6 months</option>
+              <option value="10">6–12 months ago</option>
+              <option value="4">More than a year ago</option>
+            </select>
+          </label>
+
+          <label>
+            Do you clean your tongue?
+            <select name="tongue" required>
+              <option value="">Choose one</option>
+              <option value="10">Daily</option>
+              <option value="6">Sometimes</option>
+              <option value="2">Rarely</option>
+            </select>
+          </label>
+
+          <button class="button primary full-width" type="submit">Calculate My Smile Score</button>
+        </form>
+
+        <aside class="results-card" id="resultsCard" aria-live="polite">
+          <div class="score-ring">
+            <span id="scoreNumber">--</span>
+            <small>/100</small>
+          </div>
+          <h3 id="scoreTitle">Your results will appear here</h3>
+          <p id="scoreMessage">Complete the Smile Check to receive educational suggestions.</p>
+
+          <div class="progress-group">
+            <div>
+              <span>Daily care</span>
+              <div class="progress"><span id="careBar"></span></div>
+            </div>
+            <div>
+              <span>Nutrition habits</span>
+              <div class="progress"><span id="nutritionBar"></span></div>
+            </div>
+            <div>
+              <span>Preventive care</span>
+              <div class="progress"><span id="preventionBar"></span></div>
+            </div>
+          </div>
+
+          <div class="recommendation" id="recommendation">
+            Your personalized weekly goal will appear here.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="learn">
+      <div class="section-heading">
+        <span class="eyebrow">Learn the basics</span>
+        <h2>Explore oral-health topics</h2>
+        <p>Clear explanations without complicated medical language.</p>
+      </div>
+
+      <div class="topic-grid">
+        <article class="topic-card">
+          <span class="topic-icon">🦠</span>
+          <h3>Cavities</h3>
+          <p>Cavities form when bacteria produce acids that weaken tooth enamel.</p>
+          <details>
+            <summary>Learn more</summary>
+            <p>Brushing with fluoride toothpaste, flossing, drinking water, and limiting frequent sugar exposure can lower risk.</p>
+          </details>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-icon">🩸</span>
+          <h3>Gum Health</h3>
+          <p>Healthy gums support your teeth and help protect the tissues underneath.</p>
+          <details>
+            <summary>Learn more</summary>
+            <p>Bleeding while brushing can be a sign of irritation. Gentle brushing and daily flossing may help, but persistent symptoms should be checked professionally.</p>
+          </details>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-icon">😁</span>
+          <h3>Braces</h3>
+          <p>Braces make cleaning more challenging because food can collect around brackets.</p>
+          <details>
+            <summary>Learn more</summary>
+            <p>Use an orthodontic brush, clean around brackets carefully, and follow your orthodontist’s instructions.</p>
+          </details>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-icon">🧵</span>
+          <h3>Flossing</h3>
+          <p>Floss cleans spaces between teeth that toothbrush bristles may not reach.</p>
+          <details>
+            <summary>Learn more</summary>
+            <p>Curve the floss gently around each tooth and avoid snapping it into the gums.</p>
+          </details>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-icon">🥗</span>
+          <h3>Nutrition</h3>
+          <p>How often you consume sugar can matter as much as the total amount.</p>
+          <details>
+            <summary>Learn more</summary>
+            <p>Frequent sugary drinks or snacks repeatedly expose teeth to acid. Water, cheese, nuts, and crunchy vegetables are tooth-friendly choices.</p>
+          </details>
+        </article>
+
+        <article class="topic-card">
+          <span class="topic-icon">🚨</span>
+          <h3>Dental Emergencies</h3>
+          <p>Severe pain, facial swelling, uncontrolled bleeding, or a knocked-out tooth need prompt attention.</p>
+          <details>
+            <summary>Learn more</summary>
+            <p>Contact a dentist or urgent medical service. This website does not diagnose or replace professional care.</p>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="tooth">
+      <div class="section-heading">
+        <span class="eyebrow">Interactive anatomy</span>
+        <h2>What is inside a tooth?</h2>
+        <p>Select a layer to see what it does.</p>
+      </div>
+
+      <div class="tooth-explorer">
+        <div class="tooth-diagram" aria-label="Interactive tooth anatomy diagram">
+          <button class="tooth-part enamel active" data-part="enamel">Enamel</button>
+          <button class="tooth-part dentin" data-part="dentin">Dentin</button>
+          <button class="tooth-part pulp" data-part="pulp">Pulp</button>
+          <button class="tooth-part root" data-part="root">Root</button>
+          <button class="tooth-part gums" data-part="gums">Gums</button>
+        </div>
+
+        <div class="tooth-info">
+          <span class="pill" id="partLabel">Enamel</span>
+          <h3 id="partTitle">Your tooth’s protective outer layer</h3>
+          <p id="partDescription">
+            Enamel is the hard surface covering the visible part of a tooth. It protects
+            the more sensitive layers beneath it.
+          </p>
+          <div class="info-note" id="partTip">Tip: Fluoride toothpaste helps strengthen enamel.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sugar">
+      <div class="section-heading">
+        <span class="eyebrow">Nutrition tool</span>
+        <h2>Visualize sugar in popular drinks</h2>
+        <p>Select a drink to view an approximate sugar amount and a smarter swap.</p>
+      </div>
+
+      <div class="sugar-tool">
+        <div class="drink-selector">
+          <label for="drinkSelect">Choose a drink</label>
+          <select id="drinkSelect">
+            <option value="cola">Cola, 12 oz</option>
+            <option value="sports">Sports drink, 20 oz</option>
+            <option value="energy">Energy drink, 16 oz</option>
+            <option value="bubble">Bubble tea, 16 oz</option>
+            <option value="juice">Orange juice, 12 oz</option>
+            <option value="chocolate">Chocolate milk, 12 oz</option>
+            <option value="water">Water</option>
+          </select>
+
+          <div class="drink-card">
+            <span id="drinkEmoji">🥤</span>
+            <div>
+              <strong id="drinkName">Cola</strong>
+              <p id="drinkSugar">39 grams of sugar</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cube-panel">
+          <h3>About <span id="cubeCount">10</span> sugar cubes</h3>
+          <div class="cube-visual" id="cubeVisual" aria-label="Sugar cube visualization"></div>
+          <div class="swap-box">
+            <strong>Smarter swap</strong>
+            <p id="drinkSwap">Try sparkling water with fruit.</p>
+          </div>
+        </div>
+      </div>
+      <p class="small-note">Values are approximate and vary by brand, recipe, and serving size.</p>
+    </section>
+
+    <section class="section alt-section" id="myths">
+      <div class="section-heading">
+        <span class="eyebrow">Test your knowledge</span>
+        <h2>Myth or fact?</h2>
+        <p>Click each card to reveal the answer.</p>
+      </div>
+
+      <div class="myth-grid">
+        <button class="flip-card">
+          <span class="front">“If my teeth do not hurt, they must be healthy.”</span>
+          <span class="back"><strong>Myth.</strong> Some dental problems develop without early pain.</span>
+        </button>
+        <button class="flip-card">
+          <span class="front">“Flossing helps clean between teeth.”</span>
+          <span class="back"><strong>Fact.</strong> Floss reaches spaces that a toothbrush may miss.</span>
+        </button>
+        <button class="flip-card">
+          <span class="front">“Sugar-free soda cannot affect teeth.”</span>
+          <span class="back"><strong>Myth.</strong> Acidic drinks may still contribute to enamel erosion.</span>
+        </button>
+        <button class="flip-card">
+          <span class="front">“A soft-bristled toothbrush is usually a good choice.”</span>
+          <span class="back"><strong>Fact.</strong> It can clean effectively while being gentler on gums.</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div>
+        <span class="eyebrow">Our mission</span>
+        <h2>Making preventive health education easier to understand.</h2>
+      </div>
+      <div>
+        <p>
+          SmileSmart is a student-created educational project designed to help teenagers
+          understand oral health and make informed daily choices.
+        </p>
+        <p>
+          It combines healthcare education, technology, and interactive design to turn
+          information into practical habits.
+        </p>
+        <div class="disclaimer">
+          <strong>Educational disclaimer:</strong> SmileSmart provides general educational
+          information only. It does not provide a diagnosis, treatment plan, or substitute
+          for professional dental or medical care.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo"><span class="logo-icon">🦷</span><span>SmileSmart</span></div>
+    <p>Designed to support healthier smiles through education.</p>
+    <p>© <span id="year"></span> SmileSmart</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
