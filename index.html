@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SmartSmile is an interactive oral-health education platform created for teens.">
+  <meta name="theme-color" content="#2563eb">
+  <title>SmartSmile | Oral Health Made Simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">
+    <span>Student-created oral-health education platform</span>
+    <button id="closeAnnouncement" aria-label="Close announcement">×</button>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="SmartSmile home">
+      <span class="brand-mark">S</span>
+      <span>SmartSmile</span>
+    </a>
+
+    <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav id="mainNav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#smile-check">Smile Check</a>
+      <a href="#tracker">Habit Tracker</a>
+      <a href="#learn">Learn</a>
+      <a href="#tools">Tools</a>
+      <a href="#creator">Creator</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">Healthcare education meets technology</span>
+        <h1>Build healthier habits. One smile at a time.</h1>
+        <p>
+          SmartSmile turns oral-health education into an interactive experience with
+          quizzes, personalized tools, habit tracking, and easy-to-understand resources.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#smile-check">Start Your Smile Check</a>
+          <a class="button secondary" href="#learn">Explore Resources</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div><strong>10+</strong><span>Interactive tools</span></div>
+          <div><strong>20+</strong><span>Learning topics</span></div>
+          <div><strong>100%</strong><span>Free and educational</span></div>
+        </div>
+      </div>
+
+      <div class="hero-dashboard" aria-hidden="true">
+        <div class="dashboard-card main-card">
+          <div class="mini-heading"><span>Weekly progress</span><strong>84%</strong></div>
+          <div class="week-row">
+            <span class="day complete">M</span><span class="day complete">T</span>
+            <span class="day complete">W</span><span class="day active">T</span>
+            <span class="day">F</span><span class="day">S</span><span class="day">S</span>
+          </div>
+          <div class="chart-bars">
+            <span style="height:38%"></span><span style="height:54%"></span>
+            <span style="height:72%"></span><span style="height:88%"></span>
+            <span style="height:62%"></span><span style="height:76%"></span>
+          </div>
+        </div>
+        <div class="dashboard-card floating top">🦷 Smile score <strong>87</strong></div>
+        <div class="dashboard-card floating bottom">🔥 6-day streak</div>
+      </div>
+    </section>
+
+    <section class="impact-strip" aria-label="SmartSmile goals">
+      <div><strong>Preventive care</strong><span>Encouraging healthy daily routines</span></div>
+      <div><strong>Accessible learning</strong><span>Explaining health information clearly</span></div>
+      <div><strong>Interactive technology</strong><span>Making education engaging for teens</span></div>
+    </section>
+
+    <section class="section alt" id="smile-check">
+      <div class="section-heading centered">
+        <span class="eyebrow">Personalized education</span>
+        <h2>Discover your Smile Score</h2>
+        <p>Complete six questions to receive a general educational score and a suggested weekly goal.</p>
+      </div>
+
+      <div class="assessment-layout">
+        <form class="panel quiz-form" id="smileForm">
+          <label>How often do you brush each day?
+            <select name="brush" required>
+              <option value="">Select an answer</option>
+              <option value="5">Less than once</option>
+              <option value="12">Once</option>
+              <option value="20">Twice or more</option>
+            </select>
+          </label>
+          <label>How often do you floss?
+            <select name="floss" required>
+              <option value="">Select an answer</option>
+              <option value="4">Rarely</option>
+              <option value="10">A few times per week</option>
+              <option value="18">Daily</option>
+            </select>
+          </label>
+          <label>How often do you drink sugary or acidic drinks?
+            <select name="drinks" required>
+              <option value="">Select an answer</option>
+              <option value="18">Rarely</option>
+              <option value="10">A few times per week</option>
+              <option value="4">Daily</option>
+            </select>
+          </label>
+          <label>How often do you eat sugary snacks?
+            <select name="snacks" required>
+              <option value="">Select an answer</option>
+              <option value="17">Rarely</option>
+              <option value="10">A few times per week</option>
+              <option value="5">Several times per day</option>
+            </select>
+          </label>
+          <label>When was your last dental visit?
+            <select name="visit" required>
+              <option value="">Select an answer</option>
+              <option value="17">Within 6 months</option>
+              <option value="10">6–12 months ago</option>
+              <option value="4">More than a year ago</option>
+            </select>
+          </label>
+          <label>Do you gently clean your tongue?
+            <select name="tongue" required>
+              <option value="">Select an answer</option>
+              <option value="10">Daily</option>
+              <option value="6">Sometimes</option>
+              <option value="2">Rarely</option>
+            </select>
+          </label>
+          <button class="button primary full" type="submit">Calculate My Score</button>
+        </form>
+
+        <aside class="panel results-panel" aria-live="polite">
+          <div class="score-circle" id="scoreCircle">
+            <strong id="scoreValue">--</strong><span>/100</span>
+          </div>
+          <h3 id="scoreHeading">Your results will appear here</h3>
+          <p id="scoreText">The Smile Check is educational and does not diagnose dental conditions.</p>
+
+          <div class="score-bars">
+            <div><div class="bar-label"><span>Daily care</span><strong id="careLabel">0%</strong></div><div class="bar"><span id="careBar"></span></div></div>
+            <div><div class="bar-label"><span>Nutrition habits</span><strong id="nutritionLabel">0%</strong></div><div class="bar"><span id="nutritionBar"></span></div></div>
+            <div><div class="bar-label"><span>Preventive care</span><strong id="preventionLabel">0%</strong></div><div class="bar"><span id="preventionBar"></span></div></div>
+          </div>
+
+          <div class="goal-card" id="goalCard">Complete the assessment to receive your weekly goal.</div>
+          <div class="badge-row" id="earnedBadges"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="tracker">
+      <div class="section-heading">
+        <span class="eyebrow">Daily habit tracker</span>
+        <h2>Build a healthier routine</h2>
+        <p>Check off your habits each day. Your progress is saved on your device.</p>
+      </div>
+
+      <div class="tracker-layout">
+        <div class="panel">
+          <div class="tracker-header">
+            <div>
+              <span class="small-label">Today’s progress</span>
+              <h3><span id="habitComplete">0</span> of 5 habits</h3>
+            </div>
+            <div class="streak-card">🔥 <strong id="streakCount">0</strong> day streak</div>
+          </div>
+
+          <div class="habit-list">
+            <label class="habit-item"><input type="checkbox" data-habit="morning"><span class="habit-icon">☀️</span><span><strong>Morning brushing</strong><small>Brush gently for two minutes</small></span></label>
+            <label class="habit-item"><input type="checkbox" data-habit="night"><span class="habit-icon">🌙</span><span><strong>Night brushing</strong><small>Clean your teeth before bed</small></span></label>
+            <label class="habit-item"><input type="checkbox" data-habit="floss"><span class="habit-icon">🧵</span><span><strong>Flossed</strong><small>Cleaned between your teeth</small></span></label>
+            <label class="habit-item"><input type="checkbox" data-habit="water"><span class="habit-icon">💧</span><span><strong>Drank water</strong><small>Chose water throughout the day</small></span></label>
+            <label class="habit-item"><input type="checkbox" data-habit="sugar"><span class="habit-icon">🍎</span><span><strong>Limited frequent sugar</strong><small>Reduced repeated sugary snacks or drinks</small></span></label>
+          </div>
+        </div>
+
+        <div class="panel achievement-panel">
+          <span class="small-label">Achievement center</span>
+          <h3>Your badges</h3>
+          <div class="achievement-grid">
+            <div class="achievement locked" id="badgeFirst"><span>🦷</span><strong>First Check</strong><small>Complete a Smile Check</small></div>
+            <div class="achievement locked" id="badgeRoutine"><span>⭐</span><strong>Daily Routine</strong><small>Complete all five habits</small></div>
+            <div class="achievement locked" id="badgeQuiz"><span>🧠</span><strong>Quiz Explorer</strong><small>Complete the mini quiz</small></div>
+            <div class="achievement locked" id="badgeReader"><span>📚</span><strong>Health Learner</strong><small>Open three learning cards</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="learn">
+      <div class="section-heading centered">
+        <span class="eyebrow">Learning center</span>
+        <h2>Understand your oral health</h2>
+        <p>Explore common questions using simple, teen-friendly explanations.</p>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="Filter learning topics">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="care">Daily Care</button>
+        <button class="filter-button" data-filter="conditions">Conditions</button>
+        <button class="filter-button" data-filter="nutrition">Nutrition</button>
+      </div>
+
+      <div class="learning-grid">
+        <article class="learning-card" data-category="conditions">
+          <div class="card-icon">🦠</div><span class="tag">Conditions</span><h3>Why cavities happen</h3>
+          <p>Bacteria use sugars from foods and drinks to produce acids that can weaken enamel.</p>
+          <button class="text-button learn-more">Read more</button>
+          <div class="expanded"><p>Frequent exposure matters because each sugary snack or drink can start another acid attack. Fluoride toothpaste, water, flossing, and routine dental care can help lower risk.</p></div>
+        </article>
+        <article class="learning-card" data-category="care">
+          <div class="card-icon">🪥</div><span class="tag">Daily Care</span><h3>Better brushing</h3>
+          <p>Use gentle circular motions and reach the outer, inner, and chewing surfaces.</p>
+          <button class="text-button learn-more">Read more</button>
+          <div class="expanded"><p>A soft-bristled toothbrush and fluoride toothpaste are common recommendations. Replace a worn toothbrush and avoid brushing so hard that your gums become irritated.</p></div>
+        </article>
+        <article class="learning-card" data-category="care">
+          <div class="card-icon">🧵</div><span class="tag">Daily Care</span><h3>How flossing helps</h3>
+          <p>Floss cleans spaces that toothbrush bristles may not reach effectively.</p>
+          <button class="text-button learn-more">Read more</button>
+          <div class="expanded"><p>Guide the floss gently around each tooth in a C shape. Avoid snapping it into your gums. Floss picks or water flossers may be useful alternatives for some people.</p></div>
+        </article>
+        <article class="learning-card" data-category="nutrition">
+          <div class="card-icon">🥤</div><span class="tag">Nutrition</span><h3>Sugar and acid</h3>
+          <p>Many sweet drinks are also acidic, which can increase stress on enamel.</p>
+          <button class="text-button learn-more">Read more</button>
+          <div class="expanded"><p>Sipping a sugary drink for hours repeatedly exposes teeth. Water is a tooth-friendly choice, and consuming sweet drinks less often may reduce exposure.</p></div>
+        </article>
+        <article class="learning-card" data-category="conditions">
+          <div class="card-icon">🩸</div><span class="tag">Conditions</span><h3>Bleeding gums</h3>
+          <p>Bleeding can happen when gums are irritated or inflamed.</p>
+          <button class="text-button learn-more">Read more</button>
+          <div class="expanded"><p>Gentle brushing and consistent cleaning between teeth may help. Persistent bleeding, swelling, pain, or worsening symptoms should be evaluated by a dental professional.</p></div>
+        </article>
+        <article class="learning-card" data-category="care">
+          <div class="card-icon">😁</div><span class="tag">Daily Care</span><h3>Caring for braces</h3>
+          <p>Brackets and wires create extra spaces where food and plaque can collect.</p>
+          <button class="text-button learn-more">Read more</button>
+          <div class="expanded"><p>Clean carefully around brackets, use tools recommended by your orthodontist, and follow instructions about foods and appointments.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="section-heading">
+        <span class="eyebrow">Interactive tools</span>
+        <h2>Learn by exploring</h2>
+        <p>Use these tools to visualize daily choices and test your knowledge.</p>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="toothTool">Interactive Tooth</button>
+        <button class="tab" data-tab="sugarTool">Sugar Calculator</button>
+        <button class="tab" data-tab="foodTool">Food Explorer</button>
+        <button class="tab" data-tab="quizTool">Mini Quiz</button>
+        <button class="tab" data-tab="timerTool">Brushing Timer</button>
+      </div>
+
+      <div class="tool-panel active" id="toothTool">
+        <div class="tooth-layout">
+          <div class="tooth-visual">
+            <button class="tooth-layer active" data-layer="enamel">Enamel</button>
+            <button class="tooth-layer" data-layer="dentin">Dentin</button>
+            <button class="tooth-layer" data-layer="pulp">Pulp</button>
+            <button class="tooth-layer" data-layer="root">Root</button>
+            <button class="tooth-layer" data-layer="gums">Gums</button>
+          </div>
+          <div class="tool-copy">
+            <span class="tag" id="toothLabel">Enamel</span>
+            <h3 id="toothTitle">The protective outer layer</h3>
+            <p id="toothDescription">Enamel covers the visible part of a tooth and protects the sensitive layers underneath.</p>
+            <div class="tip-box" id="toothTip">Fluoride toothpaste can help strengthen enamel.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-panel" id="sugarTool">
+        <div class="sugar-layout">
+          <div class="tool-copy">
+            <label class="select-label">Choose a drink
+              <select id="drinkSelect">
+                <option value="cola">Cola, 12 oz</option>
+                <option value="sports">Sports drink, 20 oz</option>
+                <option value="energy">Energy drink, 16 oz</option>
+                <option value="bubble">Bubble tea, 16 oz</option>
+                <option value="juice">Orange juice, 12 oz</option>
+                <option value="chocolate">Chocolate milk, 12 oz</option>
+                <option value="water">Water</option>
+              </select>
+            </label>
+            <div class="result-highlight">
+              <span id="drinkEmoji">🥤</span>
+              <div><strong id="drinkName">Cola, 12 oz</strong><p id="drinkSugar">39 grams of sugar</p></div>
+            </div>
+            <div class="tip-box"><strong>Smarter swap:</strong> <span id="drinkSwap">Try sparkling water with fruit.</span></div>
+          </div>
+          <div>
+            <h3>About <span id="cubeCount">10</span> sugar cubes</h3>
+            <div class="cube-visual" id="cubeVisual"></div>
+            <p class="fine-print">Amounts are approximate and vary by brand, recipe, and serving size.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-panel" id="foodTool">
+        <div class="food-search">
+          <label class="select-label">Search a food or drink
+            <input type="search" id="foodSearch" placeholder="Try apple, soda, cheese, candy...">
+          </label>
+          <div class="food-suggestions" id="foodSuggestions"></div>
+          <div class="food-result" id="foodResult">
+            <div class="food-result-icon">🍎</div>
+            <div><span class="status friendly">Tooth-friendly choice</span><h3>Apple</h3><p>Crunchy texture and fiber can support a balanced diet, though apples still contain natural sugars.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-panel" id="quizTool">
+        <div class="quiz-center">
+          <div class="quiz-progress"><span id="quizStep">Question 1 of 5</span><div class="bar"><span id="quizProgressBar" style="width:20%"></span></div></div>
+          <h3 id="quizQuestion">Which habit helps clean between teeth?</h3>
+          <div class="answer-grid" id="quizAnswers"></div>
+          <p class="quiz-feedback" id="quizFeedback"></p>
+          <button class="button primary hidden" id="nextQuestion">Next Question</button>
+        </div>
+      </div>
+
+      <div class="tool-panel" id="timerTool">
+        <div class="timer-center">
+          <span class="small-label">Two-minute brushing timer</span>
+          <div class="timer-ring" id="timerRing"><strong id="timerDisplay">2:00</strong></div>
+          <p id="timerInstruction">Press start when you begin brushing.</p>
+          <div class="timer-actions">
+            <button class="button primary" id="startTimer">Start</button>
+            <button class="button secondary" id="resetTimer">Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="assistant">
+      <div class="section-heading centered">
+        <span class="eyebrow">Educational assistant</span>
+        <h2>Ask SmartSmile</h2>
+        <p>Ask a general oral-health question and receive a short educational response.</p>
+      </div>
+
+      <div class="assistant-box">
+        <div class="chat-window" id="chatWindow">
+          <div class="message bot"><strong>SmartSmile:</strong> Hi! Ask me about brushing, flossing, cavities, braces, sugar, or dental visits.</div>
+        </div>
+        <form class="chat-form" id="chatForm">
+          <input id="chatInput" type="text" placeholder="Example: Why do gums bleed?" required>
+          <button class="button primary" type="submit">Ask</button>
+        </form>
+        <p class="fine-print">This is a rule-based educational demo, not a medical professional or diagnostic tool.</p>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-heading">
+        <span class="eyebrow">Frequently asked questions</span>
+        <h2>Quick answers</h2>
+      </div>
+
+      <div class="faq-list">
+        <details><summary>How often should I replace my toothbrush?</summary><p>Many dental organizations recommend replacing it every three to four months, or sooner if the bristles are frayed. Follow your dentist’s guidance for your individual needs.</p></details>
+        <details><summary>Is mouthwash required?</summary><p>Mouthwash can be useful for some people, but it does not replace brushing and cleaning between teeth. A dentist can help determine whether a specific product is appropriate.</p></details>
+        <details><summary>Why do my teeth feel sensitive?</summary><p>Sensitivity can have several causes, including exposed dentin, enamel wear, decay, or gum changes. Persistent or severe sensitivity should be checked by a dental professional.</p></details>
+        <details><summary>Can a cavity heal on its own?</summary><p>Very early mineral loss may sometimes be strengthened with fluoride and improved habits, but an established cavity generally requires professional evaluation and treatment.</p></details>
+        <details><summary>What should I do about severe tooth pain or swelling?</summary><p>Contact a dentist promptly. Facial swelling, breathing or swallowing difficulty, uncontrolled bleeding, or serious injury may require urgent medical care.</p></details>
+      </div>
+    </section>
+
+    <section class="section creator-section" id="creator">
+      <div class="creator-card">
+        <div class="creator-profile">
+          <div class="creator-avatar" aria-hidden="true">KC</div>
+          <div class="creator-tags">
+            <span>Student Developer</span><span>Future Dentist</span><span>Healthcare Advocate</span>
+          </div>
+        </div>
+
+        <div class="creator-copy">
+          <span class="eyebrow">Meet the creator</span>
+          <h2>Kaya Choudhary</h2>
+          <p>
+            Hi! I'm <strong>Kaya Choudhary</strong>, a high school student with a passion for
+            healthcare, technology, and community education. I created SmartSmile to make oral
+            health information easier to understand and more engaging for teenagers.
+          </p>
+          <p>
+            My interest in dentistry has shown me that many dental problems can be prevented
+            through education and healthy daily habits. I believe technology can play an
+            important role in making healthcare information more accessible, interactive,
+            and enjoyable to learn.
+          </p>
+          <p>
+            SmartSmile combines my interests in software development and healthcare by providing
+            educational resources and interactive tools that encourage preventive care. My goal
+            is to continue developing technology that helps people make informed decisions about
+            their health while pursuing a future career in dentistry.
+          </p>
+        </div>
+      </div>
+
+      <div class="mission-grid">
+        <article><span>🎯</span><h3>Our Mission</h3><p>Make oral-health education engaging, interactive, and accessible for teenagers and families.</p></article>
+        <article><span>🌎</span><h3>Our Vision</h3><p>Use technology to support preventive care and inspire a lifetime of healthier habits.</p></article>
+        <article><span>💡</span><h3>Why SmartSmile?</h3><p>Because understandable information can help people feel more confident about everyday health decisions.</p></article>
+      </div>
+    </section>
+
+    <section class="section alt" id="contact">
+      <div class="section-heading centered">
+        <span class="eyebrow">Get in touch</span>
+        <h2>Contact SmartSmile</h2>
+        <p>Have a suggestion, partnership idea, or question about the project?</p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info">
+          <span class="contact-icon">✉️</span>
+          <h3>Let’s connect</h3>
+          <p>SmartSmile welcomes feedback from students, educators, healthcare professionals, and community organizations.</p>
+          <a href="mailto:smilesmartstudents@gmail.com">smilesmartstudents@gmail.com</a>
+          <a class="button primary" href="mailto:smilesmartstudents@gmail.com">Email SmartSmile</a>
+        </div>
+
+        <form class="contact-form" action="https://formsubmit.co/smilesmartstudents@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New SmartSmile Website Message">
+          <input type="hidden" name="_captcha" value="false">
+          <label>Your name<input type="text" name="name" required></label>
+          <label>Your email<input type="email" name="email" required></label>
+          <label>Your message<textarea name="message" rows="6" required></textarea></label>
+          <button class="button primary full" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="disclaimer-section">
+      <strong>Educational Disclaimer</strong>
+      <p>
+        SmartSmile provides general educational information only. It is not intended to diagnose,
+        treat, cure, or replace advice from a licensed dental or medical professional. Always consult
+        a qualified healthcare provider regarding questions or concerns about your health.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <a class="brand footer-brand" href="#home"><span class="brand-mark">S</span><span>SmartSmile</span></a>
+      <p>Oral-health education made interactive.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#learn">Learn</a><a href="#tools">Tools</a><a href="#creator">Creator</a><a href="#contact">Contact</a>
+    </div>
+    <p>© <span id="year"></span> SmartSmile</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
